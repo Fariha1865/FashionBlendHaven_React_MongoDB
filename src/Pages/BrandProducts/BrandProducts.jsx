@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import BrandProduct from "./BrandProduct";
 
 const BrandProducts = () => {
 
     const {brandName} = useParams();
+    const [brandProducts,setBrandProducts] = useState([]);
     console.log(`http://localhost:5000/brand/${brandName}`)
 
     useEffect(() => {
@@ -11,18 +13,22 @@ const BrandProducts = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-    
-                // Handle the data here, e.g., update state or render it in your component.
+                setBrandProducts(data);
+               
+
             })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-            });
+
     }, [brandName]);
 
 
     return (
         <div>
-            <h1>{brandName}</h1>
+          <div>
+              {
+                
+                brandProducts.map(brandProduct=><BrandProduct key={brandProduct._id} brandProduct={brandProduct}></BrandProduct>)
+              }
+          </div>
         </div>
     );
 };
