@@ -4,8 +4,10 @@ import {
 import Root from "../Root/Root";
 import Home from "../Pages/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-// import Login from "../Pages/Login/Login";
-// import Register from "../Pages/Register/Register";
+import BrandProducts from "../Pages/BrandProducts/BrandProducts";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+
 // import PrivateContactRoute from "./PrivateContactRoute";
 // import PrivateGalleryRoute from "./PrivateGalleryRoute";
 
@@ -16,34 +18,35 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
 
     children: [
-         {
-            path:"/",
-            element:<Home></Home>
-         },
-         // {
-         //    path:"/login",
-         //    element:<Login></Login>
-         // },
-         // {
-         //    path:"/register",
-         //    element: <Register></Register>
-         // },
-         // {
-         //    path:"/serviceDetails/:id",
-         //    element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
-         // },
-         // {
-         //    path:"/contact",
-         //    element: <PrivateContactRoute><Contact></Contact></PrivateContactRoute>
-         // },
-         // {
-         //    path:"/gallery",
-         //    element: <PrivateGalleryRoute><Gallery></Gallery></PrivateGalleryRoute>
-         // },
-         // {
-         //    path:"/about",
-         //    element: <AboutUs></AboutUs>
-         // }
+      {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
+         path:"/login",
+         element:<Login></Login>
+      },
+      {
+         path:"/register",
+         element: <Register></Register>
+      },
+
+      {
+        path: "/brand/:brandName",
+        element: <BrandProducts/>
+      },
+      //  {
+      //     path:"/brandProducts",
+      //     element: <<PrivateContactRoute><Contact></Contact></PrivateContactRoute>>
+      //  },
+      // {
+      //    path:"/gallery",
+      //    element: <PrivateGalleryRoute><Gallery></Gallery></PrivateGalleryRoute>
+      // },
+      // {
+      //    path:"/about",
+      //    element: <AboutUs></AboutUs>
+      // }
     ]
   },
 ]);

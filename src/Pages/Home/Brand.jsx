@@ -2,11 +2,17 @@ import AOS from 'aos';
 import PropTypes from 'prop-types';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Brand = ({ brand }) => {
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
+    const navigate = useNavigate();
+
+    const handleBrandProductsPageNavigation = ()=>{
+         navigate(`/brand/${brand.name}`)
+    }
     return (
         <div>
             <div
@@ -14,7 +20,7 @@ const Brand = ({ brand }) => {
                 data-aos="flip-left"
 
             >
-            <div className="shadow-lg shadow-slate-400 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer relative grid  flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+            <div onClick={handleBrandProductsPageNavigation} className="shadow-lg shadow-slate-400 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer relative grid  flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
                 <div className={`absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none`} style={{
                     backgroundImage: `url(${brand.photo})`, // Set the background image using inline style
                 }}>
