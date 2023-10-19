@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const BrandDetails = () => {
+
+const ProductDetails = () => {
+
     const [productDetails, setProductDetails] = useState([]);
     const { productId } = useParams();
+
+    
     console.log(productId)
     useEffect(() => {
 
@@ -20,7 +24,29 @@ const BrandDetails = () => {
 
 
 
+
     }, [productId]);
+
+    const handleAddToCart = () =>{
+        fetch('http://localhost:5000/cartProducts',{
+
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(productDetails[0])
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+
+            if(data.insertedId)
+            {
+                alert('Product added successfully');
+                
+            }
+        })
+    }
 
     return (
         <div className="p-20 max-w-7xl mx-auto">
@@ -46,22 +72,13 @@ const BrandDetails = () => {
                         </svg>
                     ))}
                 </div>
-                In this code, we directly use the num variable to determine how many stars should be filled. The map function generates the stars from 1 to 5, and the class text-yellow-400 is applied to stars with indices less than or equal to num, making them filled stars. The text-gray-300 class is applied to stars with indices greater than num, making them empty stars.
-
-                By passing the appropriate value of num from elsewhere in your code, you can dynamically display the specified number of filled stars for your product rating.
-
-
-
-
-
-
 
             </div>
             <div className="mt-5">
-                <button className="btn bg-blue-900 hover:bg-blue-600 text-white">Add To Cart</button>
+                <button onClick={handleAddToCart} className="btn bg-blue-900 hover:bg-blue-600 text-white">Add To Cart</button>
             </div>
         </div>
     );
 };
 
-export default BrandDetails;
+export default ProductDetails;

@@ -8,10 +8,8 @@ import BrandProducts from "../Pages/BrandProducts/BrandProducts";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddProducts from "../Pages/AddProducts/AddProducts";
-import BrandDetails from "../Pages/BrandDetails/BrandDetails";
-
-// import PrivateContactRoute from "./PrivateContactRoute";
-// import PrivateGalleryRoute from "./PrivateGalleryRoute";
+import ProductDetails from "../Pages/productDetails/productDetails";
+import CartProducts from "../Pages/Cart/CartProducts";
 
 const router = createBrowserRouter([
   {
@@ -39,11 +37,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:productId",
-        element: <BrandDetails/>
+        element: <ProductDetails/>
       },
       {
         path: "/addProducts",
         element: <AddProducts/>
+      },
+      {
+        path: "/cartProducts",
+        element: <ProductDetails/>
+      },
+      {
+        path: "/cart",
+        element: <CartProducts/>
       },
       //  {
       //     path:"/brandProducts",
