@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 /* eslint-disable react/no-unescaped-entities */
 const UpdateProducts = () => {
@@ -7,7 +7,6 @@ const UpdateProducts = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const { id } = useParams();
     const [previousProduct] = useLoaderData();
 
     const [updatedProduct, setUpdatedProduct] = useState(previousProduct);
