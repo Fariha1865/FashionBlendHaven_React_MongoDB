@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const BrandProduct = ({ brandProduct }) => {
 
+    const navigate = useNavigate();
+
 
     const { _id, photo, name, type, price, rating, brand } = brandProduct;
+    const handleDetails = ()=>{
+        navigate(`/productDetails/${_id}`)
+    }
+    
     return (
         <div>
           
@@ -18,7 +25,7 @@ const BrandProduct = ({ brandProduct }) => {
                     <p>{price}</p>
                     <p>{rating}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Details</button>
+                        <button onClick={handleDetails} className="btn btn-primary">Details</button>
                         <button className="btn btn-primary">Update</button>
                     </div>
                 </div>
