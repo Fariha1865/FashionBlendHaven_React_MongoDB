@@ -6,10 +6,10 @@ const BrandProducts = () => {
 
     const {brandName} = useParams();
     const [brandProducts,setBrandProducts] = useState([]);
-    console.log(`https://server-2mfgix9rk-fariha1865s-projects.vercel.app/brand/${brandName}`)
+    console.log(`http://localhost:5000/brand/${brandName}`)
 
     useEffect(() => {
-        fetch(`https://server-2mfgix9rk-fariha1865s-projects.vercel.app/brand/${brandName}`)
+        fetch(`http://localhost:5000/brand/${brandName}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

@@ -1,5 +1,42 @@
 /* eslint-disable react/no-unescaped-entities */
 const AddProducts = () => {
+
+    const handleProductAdd = e =>{
+          e.preventDefault();
+
+
+          const form = e.target;
+
+          const name = form.name.value;
+          const brand = form.brand.value;
+          const photo = form.photo.value;
+          const type = form.type.value;
+          const price = form.price.value;
+          const description = form.description.value;
+          const rating = form.rating.value;
+
+          const product = {name,brand,photo,price,type,description,rating}
+          console.log(product);
+
+          fetch('http://localhost:5000/brandProducts',{
+
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+
+                if(data.insertedId)
+                {
+                    alert('Product added successfully');
+                    form.reset();
+                }
+            })
+    }
     return (
         <div>
             <div className="relative min-h-screen flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center" style={{ backgroundImage: "url(https://i.ibb.co/ssRhtcR/back.jpg)" }}>
@@ -8,11 +45,11 @@ const AddProducts = () => {
                     <div className="grid gap-8 grid-cols-1">
                         <div className="flex flex-col">
                             <div className="flex flex-col sm:flex-row items-center">
-                                <h2 className="font-semibold text-lg mr-auto">Shop Info</h2>
+                                <h2 className="font-semibold text-lg mr-auto">Add a New Product</h2>
                                 <div className="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                             </div>
                             <div className="mt-5">
-                                <form>
+                                <form onSubmit={handleProductAdd}>
                                     <div className="md:flex flex-row md:space-x-4 w-full text-xs">
                                         <div className="mb-3 space-y-2 w-full text-xs">
                                             <label className="font-semibold text-gray-600 py-2">Product Name<abbr title="required">*</abbr></label>
@@ -21,14 +58,14 @@ const AddProducts = () => {
                                         </div>
                                         <div className="mb-3 space-y-2 w-full text-xs">
                                             <label className="font-semibold text-gray-600 py-2">Brand Name<abbr title="required">*</abbr></label>
-                                            <select className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" required="required" name="integration[city_id]" id="integration_city_id">
+                                            <select name="brand" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" required="required"  id="integration_city_id">
                                                 <option value="">Select</option>
-                                                <option value="">Nike</option>
-                                                <option value="">Adidas</option>
-                                                <option value="">Zara</option>
-                                                <option value="">Gucci</option>
-                                                <option value="">Levi's</option>
-                                                <option value="">H&M</option>
+                                                <option value="Nike">Nike</option>
+                                                <option value="Adidas">Adidas</option>
+                                                <option value="Zara">Zara</option>
+                                                <option value="Gucci">Gucci</option>
+                                                <option value="Levi's">Levi's</option>
+                                                <option value="H&M">H&M</option>
                                             </select>
                                             <p className="text-red text-xs hidden">Please fill out this field.</p>
                                         </div>
@@ -49,48 +86,50 @@ const AddProducts = () => {
                                     <div className="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                         <div className="w-full flex flex-col mb-3">
                                             <label className="font-semibold text-gray-600 py-2">Price*</label>
-                                            <input required="required" name="price" placeholder="Price" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" id="integration_street_address" />
+                                            <input name="price" required="required"  placeholder="Price" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" id="integration_street_address" />
                                             <p className="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
                                         </div>
                                         <div className="w-full flex flex-col mb-3">
                                             <label className="font-semibold text-gray-600 py-2">Type<abbr title="required">*</abbr></label>
-                                            <select required="required" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" name="integration[city_id]" id="integration_city_id">
+                                            <select name="type" required="required" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full">
                                                 <option value="">Select</option>
-                                                <option value="">T-Shirt</option>
-                                                <option value="">Sneakers</option>
-                                                <option value="">Casual Apparel</option>
-                                                <option value="">Outerwear</option>
-                                                <option value="">Kids' Apparel</option>
-                                                <option value="">Handbags</option>
-                                                <option value="">Watches</option>
-                                                <option value="">Eyewear</option>
-                                                <option value="">Denim Apparel</option>
+                                                <option value="T-Shirt">T-Shirt</option>
+                                                <option value="Sneakers">Sneakers</option>
+                                                <option value="Casual Apparel">Casual Apparel</option>
+                                                <option value="Outerwear">Outerwear</option>
+                                                <option value="Kids' Apparel">Kids' Apparel</option>
+                                                <option value="Handbags">Handbags</option>
+                                                <option value="Watches">Watches</option>
+                                                <option value="EyeWear">EyeWear</option>
+                                                <option value="FootWear">FootWear</option>
+                                                <option value="Accessories">Accessories</option>
+                                                <option value="Denim Apparel">Denim Apparel</option>
                                             </select>
                                             <p className="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
                                         </div>
                                     </div>
                                     <div className="flex-auto w-full mb-1 text-xs space-y-2">
                                         <label className="font-semibold text-gray-600 py-2">Description*</label>
-                                        <textarea required="required" name="message" id="" className="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg py-4 px-4" placeholder="Enter Product Details and Specifications" spellCheck={false}></textarea>
+                                        <textarea  required="required" name="description" id="" className="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg py-4 px-4" placeholder="Enter Product Details and Specifications" spellCheck={false}></textarea>
 
                                     </div>
                                     <div className="w-full flex flex-col mb-3">
                                         <label className="font-semibold text-gray-600 py-2">Rating*</label>
-                                        <select required="required" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" id="integration_city_id">
-                                            
+                                        <select name="rating" required="required" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" id="integration_city_id">
+
                                             <option value="">Select</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
-                                            <option value="">4</option>
-                                            <option value="">5</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                         <p className="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
                                     </div>
                                     <p className="text-xs text-red-500 text-right my-3">Required fields are marked with an asterisk <abbr title="Required field">*</abbr></p>
                                     <div className="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                                        <button className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel</button>
-                                        <button className="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
+                                        <button onClick={window.location.reload} className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel</button>
+                                        <input type="submit" value="Save" className="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500" />
                                     </div>
                                 </form>
                             </div>
