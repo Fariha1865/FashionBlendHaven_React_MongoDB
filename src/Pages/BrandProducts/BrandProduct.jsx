@@ -4,10 +4,10 @@ const BrandProduct = ({ brandProduct }) => {
     const { _id, Image, Name, Type, Price, Rating, BrandName } = brandProduct;
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src={Image} alt="product" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{Name}</h2>
+            <div className="card card-compact bg-base-100 shadow-xl">
+                <img src={Image} alt="product" className='h-52'/>
+                <div className="card-body h-64">
+                    <h2 className="card-title h-20">{Name}</h2>
                     <p>{BrandName}</p>
                     <p>{Type}</p>
                     <p>{Price}</p>
@@ -17,6 +17,8 @@ const BrandProduct = ({ brandProduct }) => {
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 };

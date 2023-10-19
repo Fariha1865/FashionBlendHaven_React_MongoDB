@@ -26,7 +26,7 @@ const Coffee = ({ coffee, setAllCoffees }) => {
 
                     console.log('deleted', _id),
 
-                    fetch(`http://localhost:5000/coffee/${_id}`, {
+                    fetch(`https://server-2mfgix9rk-fariha1865s-projects.vercel.app/coffee/${_id}`, {
 
                         method: 'DELETE',
 

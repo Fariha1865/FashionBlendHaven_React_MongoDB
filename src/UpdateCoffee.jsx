@@ -22,7 +22,7 @@ const UpdateCoffee = () => {
 
         console.log(newCoffee);
 
-        fetch(`http://localhost:5000/coffee/${coffee._id}`,{
+        fetch(`https://server-2mfgix9rk-fariha1865s-projects.vercel.app/coffee/${coffee._id}`,{
 
             method: 'PUT',
             headers: {

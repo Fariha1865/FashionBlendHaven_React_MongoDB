@@ -19,8 +19,8 @@ const Navbar = () => {
 
         <div className="flex gap-5 lg:gap-10 md:text-black text-black lg:text-black font-bold  flex-col lg:flex-row items-center">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/gallery">Add Product</NavLink>
-            <NavLink to="/contact">My Cart</NavLink>
+            <NavLink to="/addProducts">Add Product</NavLink>
+            <NavLink to="/card">My Cart</NavLink>
             {/* <NavLink to="/about">About Us</NavLink> */}
         </div>
     </>

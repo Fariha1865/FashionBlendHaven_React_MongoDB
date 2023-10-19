@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import BrandProducts from "../Pages/BrandProducts/BrandProducts";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddProducts from "../Pages/AddProducts/AddProducts";
 
 // import PrivateContactRoute from "./PrivateContactRoute";
 // import PrivateGalleryRoute from "./PrivateGalleryRoute";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/brand/:brandName",
         element: <BrandProducts/>
+      },
+      {
+        path: "/addProducts",
+        element: <AddProducts/>
       },
       //  {
       //     path:"/brandProducts",
