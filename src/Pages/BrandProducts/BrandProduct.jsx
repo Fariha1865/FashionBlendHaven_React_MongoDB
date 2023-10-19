@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +12,9 @@ const BrandProduct = ({ brandProduct }) => {
     const handleDetails = ()=>{
         navigate(`/productDetails/${_id}`)
     }
+    const handleUpdate = ()=>{
+        navigate(`/updateProducts/${_id}`)
+   }
     
     return (
         <div>
@@ -40,7 +43,7 @@ const BrandProduct = ({ brandProduct }) => {
                 </div>
                     <div className="card-actions justify-end">
                         <button onClick={handleDetails} className="btn btn-primary">Details</button>
-                        <button className="btn btn-primary">Update</button>
+                        <button onClick={handleUpdate} className="btn btn-primary">Update</button>
                     </div>
                 </div>
             </div>
