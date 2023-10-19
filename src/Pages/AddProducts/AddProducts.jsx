@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import Swal from "sweetalert2";
 const AddProducts = () => {
 
     const handleProductAdd = e =>{
@@ -32,7 +33,11 @@ const AddProducts = () => {
 
                 if(data.insertedId)
                 {
-                    alert('Product added successfully');
+                    Swal.fire(
+                        'Product Added!',
+                        'The product has been added in the website successfully',
+                        'success',
+                    )
                     form.reset();
                 }
             })

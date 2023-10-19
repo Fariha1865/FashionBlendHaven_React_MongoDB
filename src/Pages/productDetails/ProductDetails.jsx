@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
 
@@ -42,7 +42,11 @@ const ProductDetails = () => {
 
             if(data.insertedId)
             {
-                alert('Product added successfully');
+                Swal.fire(
+                    'Product Added!',
+                    'The product has been added to your cart',
+                    'success',
+                )
                 
             }
         })

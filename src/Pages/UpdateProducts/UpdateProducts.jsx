@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import Swal from "sweetalert2";
 /* eslint-disable react/no-unescaped-entities */
 const UpdateProducts = () => {
     useEffect(() => {
@@ -39,7 +39,11 @@ const UpdateProducts = () => {
                 console.log(data)
 
                 if (data.modifiedCount > 0) {
-                    alert('Product updated successfully')
+                    Swal.fire(
+                        'Product Updated!',
+                        'The product has been updated successfully',
+                        'success',
+                    )
                     setUpdatedProduct(editedProduct);
                    
 

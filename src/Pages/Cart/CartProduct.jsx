@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Swal from "sweetalert2";
 
-const CartProduct = ({ cartProduct }) => {
+const CartProduct = ({ cartProduct,setCart }) => {
 
     const {_id,photo, name, type, price, rating, brand } = cartProduct;
 
@@ -34,10 +34,10 @@ const CartProduct = ({ cartProduct }) => {
                             console.log(data)
 
                             if (data.deletedCount > 0) {
-                                
+                                setCart(_id);
                                 Swal.fire(
-                                    'Product Deleted!',
-                                    'The product has been deleted.',
+                                    'Product Removed!',
+                                    'The product has been deleted from your cart',
                                     'success',
                                 )
                             }
@@ -82,6 +82,7 @@ const CartProduct = ({ cartProduct }) => {
     );
 };
 CartProduct.propTypes = {
-    cartProduct: PropTypes.object.isRequired
+    cartProduct: PropTypes.object.isRequired,
+    setCart: PropTypes.func
 }
 export default CartProduct;
