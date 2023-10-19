@@ -39,14 +39,14 @@ const sliderItems = [
   },
 ];
 
-const Slider = () => {
-  
+const Slider = ({isDarkMode}) => {
+  console.log(isDarkMode)
   return (
-    <div className='bg-blue-100'>
+    <div className={`${isDarkMode ? "bg-black" : "bg-blue-100"}`}>
       <AutoplaySlider className='h-[500px] mt-20 lg:mt-0 ' play cancelOnInteraction={false} interval={600}>
         {sliderItems.map((item, index) => (
           <div key={index}>
-            <div className='flex bg-blue-100'>
+            <div className={`flex ${isDarkMode ? "bg-black" : "bg-blue-100"}`}>
               <div className='w-1/2'>
                 <img src={item.src} alt={item.text} className='w-[700px] h-[500px]' />
               </div>

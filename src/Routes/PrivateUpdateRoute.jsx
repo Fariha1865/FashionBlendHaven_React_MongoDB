@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
-const PrivateContactRoute = ({children }) => {
+const PrivateUpdateRoute = ({children }) => {
    
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
@@ -23,7 +23,7 @@ const PrivateContactRoute = ({children }) => {
      
 };
 
-PrivateContactRoute.propTypes={
+PrivateUpdateRoute.propTypes={
     children: PropTypes.node
 }
-export default PrivateContactRoute;
+export default PrivateUpdateRoute;

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
-const PrivateGalleryRoute = ({children }) => {
+const PrivateAddRoute = ({children }) => {
    
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
@@ -23,7 +23,7 @@ const PrivateGalleryRoute = ({children }) => {
      
 };
 
-PrivateGalleryRoute.propTypes={
+PrivateAddRoute.propTypes={
     children: PropTypes.node
 }
-export default PrivateGalleryRoute;
+export default PrivateAddRoute;
