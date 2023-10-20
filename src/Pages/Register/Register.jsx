@@ -126,7 +126,7 @@ const Register = () => {
 
     }
     return (
-        <div className="bg-red-800">
+        <div className="bg-blue-100">
             <ToastContainer className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 " />
             <div className="max-w-xl mx-auto py-20 px-5">
                 <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg shadow-gray-200">
@@ -216,7 +216,7 @@ const Register = () => {
 
                     </form>
                     <div className="flex justify-center mb-10">
-                        <div onClick={handleGoogleSignIn} className="bg-red-800 text-white cursor-pointer mt-5 flex justify-center items-center gap-2 w-56 py-2 border border-black rounded-t-lg">
+                        <div onClick={handleGoogleSignIn} className="bg-blue-900 text-white cursor-pointer mt-5 flex justify-center items-center gap-2 w-56 py-2 border border-black rounded-t-lg">
                             <AiFillGoogleCircle></AiFillGoogleCircle>
                             <h1>Sign Up with Google</h1>
                         </div>

@@ -78,11 +78,11 @@ const Login = () => {
 
 
     return (
-        <div className="bg-red-800">
+        <div className="bg-blue-100">
             <div className="max-w-xl mx-auto py-20 px-5">
                 <ToastContainer className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 " />
                 <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg shadow-gray-200">
-                    <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#752727] bg-clip-border text-white shadow-lg shadow-pink-500/40">
+                    <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-blue-900 bg-clip-border text-white shadow-lg shadow-pink-500/40">
                         <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
                             Sign In
                         </h3>
@@ -154,7 +154,7 @@ const Login = () => {
                         </div>
 
                         <div className="p-6 pt-0">
-                            <input type="submit" value="Sign In" className="block w-full select-none rounded-lg bg-[#752727] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            <input type="submit" value="Sign In" className="block w-full select-none rounded-lg bg-blue-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             />
 
 
@@ -173,7 +173,7 @@ const Login = () => {
 
                     </form>
                     <div className="flex justify-center mb-10 mt-3">
-                        <div onClick={handleGoogleSignIn} className="bg-red-800 text-white cursor-pointer mt-5 flex justify-center items-center gap-2 w-56 py-2 border border-black rounded-t-lg">
+                        <div onClick={handleGoogleSignIn} className="bg-blue-900 text-white cursor-pointer mt-5 flex justify-center items-center gap-2 w-56 py-2 border border-black rounded-t-lg">
                             <AiFillGoogleCircle></AiFillGoogleCircle>
                             <h1>Sign In with Google</h1>
                         </div>

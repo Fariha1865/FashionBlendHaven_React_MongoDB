@@ -39,6 +39,7 @@ const sliderItems = [
   },
 ];
 
+// eslint-disable-next-line react/prop-types
 const Slider = ({isDarkMode}) => {
   console.log(isDarkMode)
   return (
