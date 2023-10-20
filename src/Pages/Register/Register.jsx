@@ -130,7 +130,7 @@ const Register = () => {
             <ToastContainer className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 " />
             <div className="max-w-xl mx-auto py-20 px-5">
                 <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg shadow-gray-200">
-                    <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#752727] bg-clip-border text-white shadow-lg shadow-pink-500/40">
+                    <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-blue-900 bg-clip-border text-white shadow-lg shadow-pink-500/40">
                         <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
                             Sign Up
                         </h3>
