@@ -16,13 +16,13 @@ const BrandProducts = () => {
     const [brandProducts, setBrandProducts] = useState([]);
 
     const {isDarkMode} = useContext(AuthContext);
-    console.log(`http://localhost:5000/brand/${brandName}`)
+    console.log(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brand/${brandName}`)
 
     useEffect(() => {
 
 
         window.scrollTo(0, 0);
-        fetch(`http://localhost:5000/brand/${brandName}`)
+        fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brand/${brandName}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

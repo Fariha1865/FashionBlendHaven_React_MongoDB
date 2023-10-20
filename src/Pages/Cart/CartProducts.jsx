@@ -8,7 +8,7 @@ const CartProducts = () => {
     
     const [cartProducts, setCartProducts] = useState([]);
     const { isDarkMode } = useContext(AuthContext);
-    console.log(`http://localhost:5000/cart`)
+    console.log(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/cart`)
 
     const setCart = _id =>{
   
@@ -20,7 +20,7 @@ const CartProducts = () => {
 
 
         window.scrollTo(0, 0);
-        fetch('http://localhost:5000/cart')
+        fetch('https://server-jsxgwmkja-fariha1865s-projects.vercel.app/cart')
             .then(response => response.json())
             .then(data => {
                 console.log(data);

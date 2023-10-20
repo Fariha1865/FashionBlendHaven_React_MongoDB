@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProducts/:id",
-        loader: ({params})=>fetch(`http://localhost:5000/updateProducts/${params.id}`),
+        loader: ({params})=>fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/updateProducts/${params.id}`),
         element: <PrivateUpdateRoute><UpdateProducts></UpdateProducts></PrivateUpdateRoute>
       
       },

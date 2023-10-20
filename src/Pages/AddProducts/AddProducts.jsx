@@ -2,24 +2,24 @@
 import Swal from "sweetalert2";
 const AddProducts = () => {
 
-    const handleProductAdd = e =>{
-          e.preventDefault();
+    const handleProductAdd = e => {
+        e.preventDefault();
 
 
-          const form = e.target;
+        const form = e.target;
 
-          const name = form.name.value;
-          const brand = form.brand.value;
-          const photo = form.photo.value;
-          const type = form.type.value;
-          const price = form.price.value;
-          const description = form.description.value;
-          const rating = form.rating.value;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const photo = form.photo.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const description = form.description.value;
+        const rating = form.rating.value;
 
-          const product = {name,brand,photo,price,type,description,rating}
-          console.log(product);
+        const product = { name, brand, photo, price, type, description, rating }
+        console.log(product);
 
-          fetch('http://localhost:5000/brandProducts',{
+        fetch('https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brandProducts', {
 
             method: 'POST',
             headers: {
@@ -31,8 +31,7 @@ const AddProducts = () => {
             .then(data => {
                 console.log(data)
 
-                if(data.insertedId)
-                {
+                if (data.insertedId) {
                     Swal.fire(
                         'Product Added!',
                         'The product has been added in the website successfully',
@@ -63,7 +62,7 @@ const AddProducts = () => {
                                         </div>
                                         <div className="mb-3 space-y-2 w-full text-xs">
                                             <label className="font-semibold text-gray-600 py-2">Brand Name<abbr title="required">*</abbr></label>
-                                            <select name="brand" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" required="required"  id="integration_city_id">
+                                            <select name="brand" className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full" required="required" id="integration_city_id">
                                                 <option value="">Select</option>
                                                 <option value="Nike">Nike</option>
                                                 <option value="Adidas">Adidas</option>
@@ -91,7 +90,7 @@ const AddProducts = () => {
                                     <div className="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                         <div className="w-full flex flex-col mb-3">
                                             <label className="font-semibold text-gray-600 py-2">Price*</label>
-                                            <input name="price" required="required"  placeholder="Price" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" id="integration_street_address" />
+                                            <input name="price" required="required" placeholder="Price" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" id="integration_street_address" />
                                             <p className="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
                                         </div>
                                         <div className="w-full flex flex-col mb-3">
@@ -115,7 +114,7 @@ const AddProducts = () => {
                                     </div>
                                     <div className="flex-auto w-full mb-1 text-xs space-y-2">
                                         <label className="font-semibold text-gray-600 py-2">Description*</label>
-                                        <textarea  required="required" name="description" id="" className="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg py-4 px-4" placeholder="Enter Product Details and Specifications" spellCheck={false}></textarea>
+                                        <textarea required="required" name="description" id="" className="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg py-4 px-4" placeholder="Enter Product Details and Specifications" spellCheck={false}></textarea>
 
                                     </div>
                                     <div className="w-full flex flex-col mb-3">

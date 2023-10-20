@@ -31,7 +31,7 @@ const Subscribe = () => {
     };
 
     return (
-        <div className="bg-gray-100 p-4 text-center">
+        <div className="p-4 text-center">
             <h2 className="text-3xl font-semibold font-mono mb-5">Subscribe for Updates</h2>
             <p className="text-gray-600 mb-2">Stay in the loop with our latest products and offers.</p>
             <div className="flex justify-center mb-10">

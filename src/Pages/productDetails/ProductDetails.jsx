@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
 
         window.scrollTo(0, 0);
-        fetch(`http://localhost:5000/productDetails/${productId}`)
+        fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/productDetails/${productId}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -33,7 +33,7 @@ const ProductDetails = () => {
     const handleAddToCart = () =>{
 
         
-        fetch('http://localhost:5000/cartProducts',{
+        fetch('https://server-jsxgwmkja-fariha1865s-projects.vercel.app/cartProducts',{
 
         method: 'POST',
         headers: {
