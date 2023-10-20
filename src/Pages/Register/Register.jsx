@@ -195,7 +195,7 @@ const Register = () => {
                             successMessage && <p className="ml-20 mb-5 text-green-800 font-bold">{successMessage}</p>
                         }
                         <div className="p-6 pt-0">
-                            <input type="submit" value="Sign Up" className="block w-full select-none rounded-lg bg-[#752727] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            <input type="submit" value="Sign Up" className="block w-full select-none rounded-lg bg-blue-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             />
 
 
