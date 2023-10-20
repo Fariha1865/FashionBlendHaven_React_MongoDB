@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import CartProduct from "./CartProduct";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const CartProducts = () => {
 
     
     const [cartProducts, setCartProducts] = useState([]);
+    const { isDarkMode } = useContext(AuthContext);
     console.log(`http://localhost:5000/cart`)
 
     const setCart = _id =>{
@@ -30,7 +33,7 @@ const CartProducts = () => {
     }, []);
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-20">
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 p-20 ${isDarkMode ? "bg-black":"bg-blue-100"}`}>
                 {
                    cartProducts.length >0 ?  cartProducts.map(cartProduct=><CartProduct key={cartProduct._id} cartProduct={cartProduct} setCart={setCart}></CartProduct>) : <img src="https://i.ibb.co/xSczbNY/no-Product-removebg-preview.png" className="lg:ml-[70%]"/>
                 }

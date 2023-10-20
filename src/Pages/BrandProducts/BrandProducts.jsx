@@ -4,6 +4,8 @@ import BrandProduct from "./BrandProduct";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import withAutoplay from 'react-awesome-slider/dist/autoplay'
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const AutoplaySlider = withAutoplay(AwesomeSlider)
@@ -12,6 +14,8 @@ const BrandProducts = () => {
     const { brandName } = useParams();
 
     const [brandProducts, setBrandProducts] = useState([]);
+
+    const {isDarkMode} = useContext(AuthContext);
     console.log(`http://localhost:5000/brand/${brandName}`)
 
     useEffect(() => {
@@ -48,7 +52,7 @@ const BrandProducts = () => {
 
 
     return (
-        <div className='max-w-6xl mx-auto mt-10'>
+        <div className={`max-w-6xl mx-auto mt-10 ${isDarkMode ? "bg-black":"bg-blue-100"}`}>
             {brandProducts?.length > 0 &&
                 <AutoplaySlider className={`h-[500px] mt-20 lg:mt-0 w-full autoSlider`}
 
@@ -67,7 +71,7 @@ const BrandProducts = () => {
                     ))}
                 </AutoplaySlider>}
 
-            <h1 className="text-3xl font-bold text-center mt-20 mb-7 border-b-4 border-blue-500">Available Products</h1>
+            <h1 className={`text-3xl font-bold text-center mt-20 mb-7 border-b-4 border-blue-500 ${isDarkMode ? "text-white": "text-black"}`}>Available Products of {brandName}</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-10'>
                 {
                     brandProducts?.length > 0 ? brandProducts.map(brandProduct => <BrandProduct key={brandProduct._id} brandProduct={brandProduct} image1={brandProducts[0].photo}></BrandProduct>) : <img src="https://i.ibb.co/xSczbNY/no-Product-removebg-preview.png" className="lg:ml-[100%]"/>

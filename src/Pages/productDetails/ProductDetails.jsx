@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const ProductDetails = () => {
 
     const [productDetails, setProductDetails] = useState([]);
     const { productId } = useParams();
+    const {isDarkMode} = useContext(AuthContext);
 
     
     console.log(productId)
@@ -28,6 +31,8 @@ const ProductDetails = () => {
     }, [productId]);
 
     const handleAddToCart = () =>{
+
+        
         fetch('http://localhost:5000/cartProducts',{
 
         method: 'POST',
@@ -56,7 +61,7 @@ const ProductDetails = () => {
         <div className="p-20 max-w-7xl mx-auto">
             <img src={productDetails[0]?.photo} alt="" className="w-[1200px] h-[500px]" />
 
-            <div>
+            <div className={`${isDarkMode ? "text-white": "text-black"}`}>
                 <h1 className="text-2xl font-bold my-5">Description:</h1>
                 <p>{productDetails[0]?.description}</p>
                 <p className="text-xl font-semibold mt-5">Price: {productDetails[0]?.price}</p>

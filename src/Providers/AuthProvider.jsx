@@ -12,6 +12,12 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null);
     const auth = getAuth(app);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+
+    };
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -47,7 +53,9 @@ const AuthProvider = ({ children }) => {
         setUser,
         logOut,
         signIn,
-        loading
+        loading,
+        toggleDarkMode,
+        isDarkMode
     }
 
     return (

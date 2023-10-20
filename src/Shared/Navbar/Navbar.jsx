@@ -6,7 +6,8 @@ import logo from "../../assets/logo.png"
 
 const Navbar = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut,isDarkMode } = useContext(AuthContext);
+  
     const handleLogout = () => {
         logOut()
             .then()
@@ -17,7 +18,7 @@ const Navbar = () => {
     const navLinks = <>
 
 
-        <div className="flex gap-5 lg:gap-10 md:text-black text-black lg:text-black font-bold  flex-col lg:flex-row items-center">
+        <div className={`flex gap-5 lg:gap-10 md:text-black text-black ${isDarkMode ? "lg:text-white":"lg:text-black"} font-bold  flex-col lg:flex-row items-center`}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/addProducts">Add Product</NavLink>
             <NavLink to="/cart">My Cart</NavLink>
@@ -25,8 +26,8 @@ const Navbar = () => {
         </div>
     </>
     return (
-        <div className="text-black">
-            <div className="navbar flex flex-col-reverse md:flex-row gap-10 md:gap-0">
+        <div className={`${isDarkMode ? "text-white" : "text-black"}`}>
+            <div className={`navbar flex flex-col-reverse md:flex-row gap-10 md:gap-0 ${isDarkMode ? "bg-blue-900" : "bg-blue-50"}`}>
                 <div className="navbar-start">
                     <div className="dropdown  z-10">
                         <label tabIndex={0} className="btn hidden md:block lg:hidden mr-5">
@@ -57,7 +58,7 @@ const Navbar = () => {
 
                     </label>
                     {
-                        user?.displayName ? <h1 className="text-black mr-3">{user?.displayName}</h1> : "" 
+                        user?.displayName ? <h1 className={`${isDarkMode ? "text-white":"text-black"} mr-3`}>{user?.displayName}</h1> : "" 
                     }
 
 

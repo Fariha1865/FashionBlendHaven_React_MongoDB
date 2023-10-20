@@ -36,7 +36,7 @@ const Register = () => {
 
     const { createUser } = useContext(AuthContext)
     const auth = getAuth(app);
-    const { setUser } = useContext(AuthContext);
+    const { setUser,isDarkMode } = useContext(AuthContext);
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, new GoogleAuthProvider())
@@ -126,7 +126,7 @@ const Register = () => {
 
     }
     return (
-        <div className="bg-blue-100">
+        <div className={`${isDarkMode ? "bg-black":"bg-blue-100"}`}>
             <ToastContainer className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 " />
             <div className="max-w-xl mx-auto py-20 px-5">
                 <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg shadow-gray-200">
