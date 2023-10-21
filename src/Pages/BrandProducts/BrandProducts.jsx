@@ -16,13 +16,13 @@ const BrandProducts = () => {
     const [brandProducts, setBrandProducts] = useState([]);
 
     const {isDarkMode} = useContext(AuthContext);
-    console.log(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brand/${brandName}`)
-
+    console.log(`https://server-odmky03uc-fariha1865s-projects.vercel.app/brand/${brandName}`)
+    
     useEffect(() => {
 
 
         window.scrollTo(0, 0);
-        fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brand/${brandName}`)
+        fetch(`https://server-odmky03uc-fariha1865s-projects.vercel.app/brand/${brandName}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -52,7 +52,7 @@ const BrandProducts = () => {
 
 
     return (
-        <div className={`max-w-6xl mx-auto mt-10 ${isDarkMode ? "bg-black":"bg-blue-100"}`}>
+        <div className={` mt-10 ${isDarkMode ? "bg-black":"bg-blue-100"}`}>
             {brandProducts?.length > 0 &&
                 <AutoplaySlider className={`h-[500px] mt-20 lg:mt-0 w-full autoSlider`}
 
@@ -72,7 +72,7 @@ const BrandProducts = () => {
                 </AutoplaySlider>}
 
             <h1 className={`text-3xl font-bold text-center mt-20 mb-7 border-b-4 border-blue-500 ${isDarkMode ? "text-white": "text-black"}`}>Available Products of {brandName}</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-10'>
+            <div className='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-10'>
                 {
                     brandProducts?.length > 0 ? brandProducts.map(brandProduct => <BrandProduct key={brandProduct._id} brandProduct={brandProduct} image1={brandProducts[0].photo}></BrandProduct>) : <img src="https://i.ibb.co/xSczbNY/no-Product-removebg-preview.png" className="lg:ml-[100%]"/>
                 }

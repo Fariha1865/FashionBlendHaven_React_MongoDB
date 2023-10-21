@@ -23,7 +23,7 @@ const CartProduct = ({ cartProduct,setCart }) => {
 
                     console.log('deleted', _id),
 
-                    fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/product/${_id}`, {
+                    fetch(`https://server-odmky03uc-fariha1865s-projects.vercel.app/product/${_id}`, {
 
                         method: 'DELETE',
 

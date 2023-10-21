@@ -19,7 +19,7 @@ const AddProducts = () => {
         const product = { name, brand, photo, price, type, description, rating }
         console.log(product);
 
-        fetch('https://server-jsxgwmkja-fariha1865s-projects.vercel.app/brandProducts', {
+        fetch('https://server-odmky03uc-fariha1865s-projects.vercel.app/brandProducts', {
 
             method: 'POST',
             headers: {

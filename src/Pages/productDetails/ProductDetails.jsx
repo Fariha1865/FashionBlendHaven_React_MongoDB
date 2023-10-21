@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
     const [productDetails, setProductDetails] = useState([]);
     const { productId } = useParams();
-    const {isDarkMode} = useContext(AuthContext);
+    const {isDarkMode,user} = useContext(AuthContext);
 
     
     console.log(productId)
@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
 
         window.scrollTo(0, 0);
-        fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/productDetails/${productId}`)
+        fetch(`https://server-odmky03uc-fariha1865s-projects.vercel.app/productDetails/${productId}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -32,8 +32,11 @@ const ProductDetails = () => {
 
     const handleAddToCart = () =>{
 
+        productDetails[0]['email'] = user?.email;
+        console.log(productDetails[0])
         
-        fetch('https://server-jsxgwmkja-fariha1865s-projects.vercel.app/cartProducts',{
+   
+        fetch(`https://server-odmky03uc-fariha1865s-projects.vercel.app/cartProducts/${user?.email}`, {
 
         method: 'POST',
         headers: {
@@ -43,8 +46,15 @@ const ProductDetails = () => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            console.log(data.errorCode)
 
+            if (data.errorCode==11000) {
+                Swal.fire(
+                    'Product already exists!',
+                    'This product already exists in your cart',
+                    'error',
+                )
+            }
             if(data.insertedId)
             {
                 Swal.fire(
@@ -53,9 +63,10 @@ const ProductDetails = () => {
                     'success',
                 )
                 
-            }
+            }  
         })
     }
+    
 
     return (
         <div className="p-20 max-w-7xl mx-auto">

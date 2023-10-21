@@ -53,12 +53,12 @@ const router = createBrowserRouter([
         element: <ProductDetails/>
       },
       {
-        path: "/cart",
+        path: "/cart/:userEmail",
         element: <PrivateCartRoute><CartProducts/></PrivateCartRoute>
       },
       {
         path: "/updateProducts/:id",
-        loader: ({params})=>fetch(`https://server-jsxgwmkja-fariha1865s-projects.vercel.app/updateProducts/${params.id}`),
+        loader: ({params})=>fetch(`https://server-odmky03uc-fariha1865s-projects.vercel.app/updateProducts/${params.id}`),
         element: <PrivateUpdateRoute><UpdateProducts></UpdateProducts></PrivateUpdateRoute>
       
       },
