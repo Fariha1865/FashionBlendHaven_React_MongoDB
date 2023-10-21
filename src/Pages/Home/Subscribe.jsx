@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import './sparkle.css'
+
 const Subscribe = () => {
 
 
@@ -14,7 +16,7 @@ const Subscribe = () => {
     };
 
     const isValidEmail = (email) => {
-    
+
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailPattern.test(email);
     };
@@ -26,7 +28,7 @@ const Subscribe = () => {
             'success',
         )
         console.log('Subscribed with email:', email);
-        setEmail(''); 
+        setEmail('');
         setIsButtonDisabled(true);
     };
 
@@ -41,7 +43,7 @@ const Subscribe = () => {
                     value={email}
                     onChange={handleEmailChange}
                     className="p-2 border border-gray-300 rounded-l-md w-64 focus:outline-none"
-                    required 
+                    required
                 />
                 <button
                     onClick={handleSubscribe}
@@ -51,8 +53,12 @@ const Subscribe = () => {
                     Subscribe
                 </button>
             </div>
+
+
+
+
         </div>
     );
-    }
+}
 
 export default Subscribe;

@@ -39,7 +39,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* <h1 className="text-white font-mono text-xl font-bold bg-blue-900 p-2 rounded-md italic">FashionBlendHaven</h1> */}
-                    <img src={logo} className="w-96"></img>
+                    <img src={logo} className="w-96 mr-10"></img>
                 </div>
                 <div className="navbar-center block md:hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
