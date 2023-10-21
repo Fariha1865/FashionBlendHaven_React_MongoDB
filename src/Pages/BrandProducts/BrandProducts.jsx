@@ -74,7 +74,7 @@ const BrandProducts = () => {
                 </AutoplaySlider>}
 
             <h1 className={`text-3xl font-bold text-center mt-20 mb-7 border-b-4 border-blue-500 ${isDarkMode ? "text-white" : "text-black"}`}>Available Products of {brandName}</h1>
-            <div className='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-10'>
+            <div className='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 p-10'>
                 {isLoading ? (
                
                     <div className="text-center mt-50">
