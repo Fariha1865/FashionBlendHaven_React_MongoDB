@@ -31,12 +31,15 @@ const CartProducts = () => {
 
     return (
         <div>
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 p-20 ${isDarkMode ? "bg-black" : "bg-blue-100"}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-20 ${isDarkMode ? "bg-black" : "bg-blue-100"}`}>
                 {loading ? (
-                    <p>Loading...</p>
+                    <p className="text-4xl font-bold text-center">Loading...</p>
                 ) : cartProducts.length > 0 ? (
+                    
                     cartProducts.map(cartProduct => (
+                        
                         <CartProduct key={cartProduct._id} cartProduct={cartProduct} setCart={setCart} />
+                       
                     ))
                 ) : (
                     <img src="https://i.ibb.co/xSczbNY/no-Product-removebg-preview.png" className="lg:ml-[70%]" />
