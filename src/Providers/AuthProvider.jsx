@@ -12,10 +12,15 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null);
     const auth = getAuth(app);
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
+    
+    const initialIsDarkMode = JSON.parse(localStorage.getItem('isDarkMode') || false);
+    const [isDarkMode, setIsDarkMode] = useState(initialIsDarkMode);
+    
     const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
+        
+        const newIsDarkMode = !isDarkMode;
+        setIsDarkMode(newIsDarkMode);
+        localStorage.setItem('isDarkMode', JSON.stringify(newIsDarkMode));
 
     };
 
